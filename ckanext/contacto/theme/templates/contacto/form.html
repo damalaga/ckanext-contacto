@@ -1,0 +1,129 @@
+{% import "macros/form.html" as form %}
+
+{% extends "page.html" %}
+
+{% block breadcrumb_content %}
+<a class=" active" href="/">Contacto</a>
+{% endblock %}
+
+{% block secondary %}
+<HEAD>
+<script>
+function fnccomposebody() {
+    document.getElementById("mailbody").value = "";
+    document.getElementById("mailbody").value = "Estos son los datos de la aplicacion:" + "\n" +
+	"*email de contacto: " +document.getElementById("contactmail").value + "\n" +
+	"*URL de empresa: " +document.getElementById("urlempresa").value + "\n" +
+	"*Nombre de la aplicacion: " +document.getElementById("nombreapp").value + "\n" +
+	"*URL del logo: " +document.getElementById("urllogo").value + "\n" +
+	"*Descripcion de la aplicacion: " +document.getElementById("descapp").value + "\n" +
+	"*URL Appstore: " +document.getElementById("urlappstore").value + "\n" +
+	"*URL Google Play: " +document.getElementById("urlgoogle").value + "\n" +
+	"*URL Windows Phone: " +document.getElementById("urlwin").value + "\n" +
+	"*Otra URL: " +document.getElementById("urlotras").value;
+
+}
+
+</script>
+</HEAD>
+
+<aside class="secondary">
+<div class="module module-narrow module-shallow">
+<h2 class="module-heading"><i class="icon-info-sign"></i>{{_('Contact us')}}</h2>
+</div>
+<div class="module-content">
+{{_('Text about contact us')}}</div>
+</aside>
+{% endblock %}
+<div class="wrapper">
+{% block primary %}
+<div class="primary">
+<article class="module">
+<div class="module-content">
+<form action="/send_contact" method="post" class="dataset-form form-horizontal">
+	<fieldset>
+  {{ form.errors(error_summary) }}
+
+<legend>Información general</legend>
+	<div class="control-group control-full">
+		<label class="control-label" for="field-app"><span title="Este campo es requerido" class="control-required">*</span> email de contacto</label>
+		<div class="controls ">
+			<input required id="contactmail" type="email" name="contactmail" value="" placeholder="">
+		</div>
+	</div>
+	<div class="control-group control-full">
+		<label class="control-label" for="field-app"><span title="Este campo es requerido" class="control-required">*</span> Web de la empresa</label>
+		<div class="controls ">
+			<input required id="urlempresa" type="url" name="urlempresa" value="" placeholder="Si no existe, escribir tienda que se enlazará por defecto">
+		</div>
+	</div>
+
+<legend>Datos de la aplicación</legend>
+	<div class="control-group control-full">
+		<label class="control-label" for="field-app"><span title="Este campo es requerido" class="control-required">*</span> Nombre de la aplicación</label>
+		<div class="controls ">
+			<input required id="nombreapp" type="text" name="nombreapp" value="" placeholder="">
+		</div>
+	</div>
+	<div class="control-group control-full">
+		<label class="control-label" for="field-app" ><span title="Este campo es requerido" class="control-required">*</span> URL del logo</label>
+		<div class="controls ">
+			<input required id="urllogo" type="url" name="urllogo" value="" placeholder="URL de la imagen en formato png con fondo transparente">
+		</div>
+	</div>
+	<div class="control-group control-full">
+		<label class="control-label" for="field-app"> Descripción de la aplicación</label>
+		<div class="controls editor">
+			<textarea id="descapp" name="descapp" value="" placeholder="Máximo 300 caractéres" maxlength="300"></textarea>
+		</div>
+	</div>
+
+<legend>Tiendas web en las que se encuentra</legend>
+	<div class="control-group control-full">
+		<label class="control-label" for="field-app" >AppStore</label>
+		<div class="controls ">
+			<input id="urlappstore" type="url" name="urlappstore" value="" placeholder="URL de la app en la tienda">
+		</div>
+	</div>
+	<div class="control-group control-full">
+		<label class="control-label" for="field-app">Google Play</label>
+		<div class="controls ">
+			<input id="urlgoogle" type="url" name="urlgoogle" value="" placeholder="">
+		</div>
+	</div>
+	<div class="control-group control-full">
+		<label class="control-label" for="field-app">Windows Phone</label>
+		<div class="controls ">
+			<input id="urlwin" type="url" name="urlwin" value="" placeholder="">
+		</div>
+	</div>
+	<div class="control-group control-full">
+		<label class="control-label" for="field-app">Otras</label>
+		<div class="controls ">
+			<input id="urlotras" type="url" name="urlotras" value="" placeholder="">
+		</div>
+	</div>
+	<div class="control-group control-full">
+		<div class="controls editor">
+			<textarea id="mailbody" name="mailbody" value="" style="display:none"></textarea>
+		</div>
+	</div>
+	</fieldset>
+<p class="control-required-message"><spam class="control-required-message"><span class="control-required">*</span>Campo requerido
+          <button class="btn btn-primary" type="submit" name="save" onclick="fnccomposebody()" >Enviar</button>
+</p>
+        </form>
+</div>
+  </article>
+  {% if g.recaptcha_publickey %}
+    {% snippet "user/snippets/recaptcha.html", public_key=g.recaptcha_publickey %}
+  {% endif %}
+
+
+</div> <!--fin de primary-->
+{% endblock %}
+</div> <!--fin del wrapper -->
+
+
+
+

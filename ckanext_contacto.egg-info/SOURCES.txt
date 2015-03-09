@@ -1,0 +1,14 @@
+setup.py
+ckanext/__init__.py
+ckanext/contacto/__init__.py
+ckanext/contacto/contact.py
+ckanext/contacto/controller con captcha.py
+ckanext/contacto/controller.py
+ckanext/contacto/plugin.py
+ckanext_contacto.egg-info/PKG-INFO
+ckanext_contacto.egg-info/SOURCES.txt
+ckanext_contacto.egg-info/dependency_links.txt
+ckanext_contacto.egg-info/entry_points.txt
+ckanext_contacto.egg-info/namespace_packages.txt
+ckanext_contacto.egg-info/not-zip-safe
+ckanext_contacto.egg-info/top_level.txt

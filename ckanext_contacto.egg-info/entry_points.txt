@@ -1,0 +1,4 @@
+
+        [ckan.plugins]
+        contacto=ckanext.contacto.plugin:ContactClass
+    

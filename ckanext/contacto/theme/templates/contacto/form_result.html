@@ -1,0 +1,36 @@
+{% extends "page.html" %}
+
+{% block subtitle %}Contacto{% endblock %}
+
+{% block breadcrumb_content %}
+<a class=" active" href="/">Resultado del Contacto</a>
+{% endblock %}
+
+
+<div class="wrapper">
+{% block primary %}
+<div class="primary">
+<article class="module">
+<form action="/" method="post" class="dataset-form form-horizontal">
+	<fieldset>
+	  Publicaremos tu aplicación tan pronto como sea posible.
+          <button class="btn btn-primary" type="submit" name="save" >Volver</button>
+        </form>
+  </article>
+
+
+</div> <!--fin de primary-->
+
+{% endblock %}
+{% block secondary %}
+<aside class="secondary">
+<div class="module module-narrow module-shallow">
+<h2 class="module-heading"><i class="icon-info-sign"></i>{{_('Contact us')}}</h2>
+<div class="module-content">
+{{_('Text about contact us')}}
+</div>
+</aside>
+{% endblock %}
+</div> <!--fin del wrapper -->
+
+
