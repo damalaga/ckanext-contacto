@@ -26,19 +26,11 @@ function fnccomposebody() {
 
 </script>
 </HEAD>
-
-<aside class="secondary">
-<div class="module module-narrow module-shallow">
-<h2 class="module-heading"><i class="icon-info-sign"></i>{{_('Contact us')}}</h2>
-</div>
-<div class="module-content">
-{{_('Text about contact us')}}</div>
-</aside>
 {% endblock %}
-<div class="wrapper">
+<div class="row wrapper">
 {% block primary %}
-<div class="primary">
-<article class="module">
+<div class="primary span9">
+<section class="module">
 <div class="module-content">
 <form action="/send_contact" method="post" class="dataset-form form-horizontal">
 	<fieldset>
@@ -114,13 +106,15 @@ function fnccomposebody() {
 </p>
         </form>
 </div>
-  </article>
-  {% if g.recaptcha_publickey %}
-    {% snippet "user/snippets/recaptcha.html", public_key=g.recaptcha_publickey %}
-  {% endif %}
+</section>
+</div>
+<aside class="secondary span3">
+<div class="module module-narrow module-shallow">
+<h2 class="module-heading"><i class="icon-info-sign"></i>{{_('Contact us')}}</h2>
+<div class="module-content"><p>{{_('Text about contact us')}}</p></div>
+</div>
+</aside>
 
-
-</div> <!--fin de primary-->
 {% endblock %}
 </div> <!--fin del wrapper -->
 
