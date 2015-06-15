@@ -7,8 +7,8 @@ Esta extensión ha sido desarrollada para [Portal de Datos Abiertos del Ayuntami
 
 <b>IMPORTANTE:</b>
 
-Esta extensión funciona para CKAN 2.2 o anteriores, para versiones superiores esta versión <b>NO ES COMPATIBLE</b>.
-Para usar la extensión ckanext-contacto en CKAN 2.3 o superiores, deberá usar la rama pertinente de este repositorio.
+Esta extensión funciona para CKAN 2.3, para versiones anteriores esta versión <b>NO ES COMPATIBLE</b>.
+Para usar la extensión ckanext-contacto en CKAN 2.2 o anteriores, deberá usar la rama pertinente de este repositorio.
 
 ###ckanext-contacto (en)
 This CKAN extension provides a contact form. You can design a form that and it will be sent by email.
@@ -16,8 +16,8 @@ This CKAN extension has been developed for [Portal de Datos Abiertos del Ayuntam
 
 <b>NOTE:</b>
 
-This extension works for CKAN 2.2 and less versions.
-If you want to use this extension for CKAN 2.2 and above, you have to use [this](https://github.com/damalaga/ckanext-contacto/) branch.
+This extension works for CKAN 2.3 versions.
+If you want to use this extension for CKAN 2.2 or less, you have to use [this branch](https://github.com/damalaga/ckanext-contacto/tree/v1.0-for-CKAN-2.2-y-ant).
 
 ##Cómo funciona ?
 Una vez el formulario es rellenado por un usuario que no tiene que estar logado, al pulsar el botón "enviar" se genera el cuerpo del correo mediante una función Javascript (en nuestro caso, la función concatena todos los campos del formulario) y es enviado a una dirección de correo electrónica que está configurada en el fichero .ini.
