@@ -10,7 +10,6 @@ Esta extensión ha sido desarrollada para [Portal de Datos Abiertos del Ayuntami
 Esta extensión funciona para CKAN 2.2 o anteriores, para versiones superiores esta versión <b>NO ES COMPATIBLE</b>.
 Para usar la extensión ckanext-contacto en CKAN 2.3 o superiores, deberá usar la rama pertinente de este repositorio.
 
-v2.0-CKAN2.3-respon
 ###ckanext-contacto (en)
 This CKAN extension provides a contact form. You can design a form that and it will be sent by email.
 This CKAN extension has been developed for [Portal de Datos Abiertos del Ayuntamiento de Málaga](http://datosabiertos.malaga.eu). This extension is used for developers and IT that use our opendata files to inform us a new applications characteristics.
