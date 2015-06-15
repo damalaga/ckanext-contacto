@@ -7,7 +7,7 @@ Esta extensión ha sido desarrollada para [Portal de Datos Abiertos del Ayuntami
 
 <b>IMPORTANTE:</b>
 
-Esta extensión funciona para CKAN 2.3 , para versiones anteriores esta versión <b>NO ES COMPATIBLE</b>.
+Esta extensión funciona para CKAN 2.3, para versiones anteriores esta versión <b>NO ES COMPATIBLE</b>.
 Para usar la extensión ckanext-contacto en CKAN 2.2 o inferiores, deberá usar [esta rama](https://github.com/damalaga/ckanext-contacto/tree/v1.0-for-CKAN-2.2-y-ant).
 
 ###ckanext-contacto (en)
@@ -16,7 +16,7 @@ This CKAN extension has been developed for [Portal de Datos Abiertos del Ayuntam
 
 <b>NOTE:</b>
 
-This extension works for CKAN 2.2 and less versions.
+This extension works for CKAN 2.3 version.
 If you want to use this extension for CKAN 2.2 and above, you have to use [this branch](https://github.com/damalaga/ckanext-contacto/tree/v1.0-for-CKAN-2.2-y-ant).
 
 ##Cómo funciona ?
