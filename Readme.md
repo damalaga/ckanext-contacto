@@ -4,31 +4,32 @@ ckanext-contacto
 ================
 Esta extensión proporciona un formulario de contacto, con él podemos diseñar un formulario que, una vez relleno, se envía por correo electrónico.
 Esta extensión ha sido desarrollada para [Portal de Datos Abiertos del Ayuntamiento de Málaga](http://datosabiertos.malaga.eu) como formulario de contacto en la que los usuarios que crean aplicaciones usando datosabiertos.malaga.eu, nos informan de las características, ubicación y enlaces disponibles de las aplicaciones.
-El envío de correos se realiza mediante el uso de la librería de CKAN ckan.lib.mailer
 
 <b>IMPORTANTE:</b>
 
 Esta extensión funciona para CKAN 2.3, para versiones anteriores esta versión <b>NO ES COMPATIBLE</b>.
 Para usar la extensión ckanext-contacto en CKAN 2.2 o anteriores, deberá usar la rama pertinente de este repositorio.
 
-###ckanext-contacto (en)
+### ckanext-contacto (en)
 This CKAN extension provides a contact form. You can design a form that and it will be sent by email.
 This CKAN extension has been developed for [Portal de Datos Abiertos del Ayuntamiento de Málaga](http://datosabiertos.malaga.eu). This extension is used for developers and IT that use our opendata files to inform us a new applications characteristics.
-This extension send emails, with a CKAN library called ckan.lib.mailer.
 
 <b>NOTE:</b>
 
 This extension works for CKAN 2.3 versions.
 If you want to use this extension for CKAN 2.2 or less, you have to use [this branch](https://github.com/damalaga/ckanext-contacto/tree/v1.0-for-CKAN-2.2-y-ant).
 
-##Cómo funciona ?
-Una vez el formulario es rellenado por un usuario que no tiene que estar logado, al pulsar el botón "enviar" se genera el cuerpo del correo mediante una función Javascript (en nuestro caso, la función concatena todos los campos del formulario) y es enviado a una dirección de correo electrónica que está configurada en el fichero .ini.
+## Cómo funciona ?
+Una vez el formulario es rellenado por un usuario que no tiene que estar logado, al pulsar el botón "enviar" se envía a una dirección de correo electrónica configurada previamente en el fichero .ini.
 Esta extensión tiene un método muy parecido a mailer.py, pero está adaptado a las necesidades de la extensión.
-###How does it works ?
-Form is filled by an user (not login needed), them user presses "Send" buttom and a Javascript creates a body email concatening fields (this Javascript can be change). Body is sent by email to a sender that is configure into ini file. 
-This CKAN extension has implemented a method that it is similar to mailer.py. But several modifications where required, so this extension does not use mailer.py original.
+Además existe un control de captcha para el envío de correos.
 
-##Posibles modificaciones
+### How does it works ?
+Form is filled by an user (not login needed), them user presses "Send" buttom and it sends a email to a sender previously configured into ini file 
+This CKAN extension has implemented a method that it is similar to mailer.py. But several modifications where required, so this extension does not use mailer.py original.
+Also, there is a captcha control before a mail was sent.
+
+## Posibles modificaciones
 * form.html tiene una función Javascript que compone el cuerpo del correo electrónico, esta función puede ser modificada para que generar otro cuerpo del correo, pero el id tiene que existir, ya que, será el cuerpo del correo que se envía y, además, llamarse mailbody que es el parámetro que espera el generador de correo.
 * Existe un parámetro de configuración que podemos añadir al fichero .ini que es el html al que se dirigirá el formulario tras el envío de correo, si no se especifica, irá a /form_result.html.
 * El fichero form_result.html puede ser modificado libremente.
@@ -51,15 +52,15 @@ This CKAN extension has implemented a method that it is similar to mailer.py. Bu
 <code>"Text about contact us"</code>
 </pre>
 
-##Importante
+## Importante
 Los siguientes campos, son usados por contact.py, por lo que deben estar rellenos y tener ese id.
 * 'mailbody': contenido del cuerpo del correo electrónico (en nuestro caso se rellena con la función Javascript).
 * 'contactmail': email de quien envía el correo.
 
-###Notice
+### Notice
 There are two required input text: mailbody and contactmail. These two field are expected to be filled.
 
-##Instalación de la extensión
+## Instalación de la extensión
 * descargar el fichero en /ckan/lib/default/src/
 * ir al directorio cd /ckan/lib/default/src/ckanext-contacto
 * activar el entorno . /....activate
@@ -71,7 +72,7 @@ There are two required input text: mailbody and contactmail. These two field are
 * Active enviroment  . /....activate
 * Execute: python setup.py develop
 
-##Configuración
+## Configuración
 - Añadir los siguientes parámetros en el fichero ini:
 <pre>
 <code>ckan_contacto.recipient_name = #Nombre del destinatario.</code>
@@ -82,7 +83,16 @@ There are two required input text: mailbody and contactmail. These two field are
 - Hay que añadir la extensión "contacto" a los plugins de ckan <pre><code>ckan.plugins = ....contacto</code></pre>
 - Llamar al formulario con /contacto/form.html
 
-###Configuration
+## Configuración de captcha
+Hay que crear una cuenta captcha en google para poder usarla en esta página y agregar los siguientes parámetros en el fichero ini:
+<pre>
+<code>ckan.recaptcha.version = 2</code>
+<code>ckan.recaptcha.publickey = rellenar con el código que proporciona en el captcha</code>
+<code>ckan.recaptcha.privatekey = rellenar con el código que proporciona en el captcha</code>
+</pre>
+
+
+### Config
 - You have to add this parameter into .ini config file
 <pre>
 <code>ckan_contacto.recipient_name = #Recipient name </code>
@@ -91,6 +101,15 @@ There are two required input text: mailbody and contactmail. These two field are
 <code>ckan_contacto.form_result = #html file will be opened after CKAN has sent a mail.</code>
 - add contact extension as plugin:<pre><code>ckan.plugins = ... contacto</code></pre>
 - Finally you have to call contact form /contacto/form.html
+
+## Captcha config
+A google captcha account must be created for using this page. After this, theses params must be included into ini file:
+<pre>
+<code>ckan.recaptcha.version = 2</code>
+<code>ckan.recaptcha.publickey = code provided by google</code>
+<code>ckan.recaptcha.privatekey = code provided by google</code>
+</pre>
+
 
 ## Licencia
 El código de esta aplicación puede ser reutilizado, modificado y adaptado a las necesidades de los distintos portales de forma libre. Si utilizas nuestro código o parte de él, por favor, incluye nuestro logo en el cabecero o pie de página a modo de reconocimiento a Datos abiertos Málaga. Gracias!
