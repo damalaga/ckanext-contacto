@@ -99,6 +99,7 @@ Hay que crear una cuenta captcha en google para poder usarla en esta página y a
 <code>ckan_contacto.recipient_email = # Recipient email (that is: who is going to recieve this mail...your CKAN admin, I suppose :)</code>
 <code>ckan_contacto.subject = # Mail subject</code>
 <code>ckan_contacto.form_result = #html file will be opened after CKAN has sent a mail.</code>
+</pre>
 - add contact extension as plugin:<pre><code>ckan.plugins = ... contacto</code></pre>
 - Finally you have to call contact form /contacto/form.html
 
